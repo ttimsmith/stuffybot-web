@@ -3,6 +3,7 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <% if !Settings.custom_css_url.nil? %>
@@ -10,6 +11,8 @@
   <% end %>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+	<script src="//use.typekit.net/iqf5bwk.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 	<div class="container">
@@ -21,7 +24,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<%= link_to site_title, root_url, class: "navbar-brand" %>
+				<div class="small-logo">
+					<%= link_to root_url do %>
+						<%= image_tag "small_goodstuff_logo.svg" %>
+					<% end %>
+				</div><!-- /.small-logo -->
 			</div>
 			<div class="collapse navbar-collapse navbar-ex1-collape">
 			<% if admin? %>
@@ -40,7 +47,7 @@
 						</ul>
 					</li>
 				</ul>
-			
+
 			<% end %>
 				<p class="navbar-text pull-right">
 					<% if signed_in? %>
@@ -55,11 +62,12 @@
 
 		<%= yield %>
 
-		<%= debug(params) if Rails.env.development? %>
-		<%= debug(Settings) if Rails.env.development? %>
-		<%= debug(Cache.visitor_count) if Rails.env.development? %>
-		<footer> 
-			<p>Source code on <a href="https://github.com/holycow/shewbot-rails">Github</a>.</p>
+		<%#= debug(params) if Rails.env.development? %>
+		<%#= debug(Settings) if Rails.env.development? %>
+		<%#= debug(Cache.visitor_count) if Rails.env.development? %>
+
+		<footer class="site__footer" role="contentinfo">
+			<p>A huge thanks to <a href="https://github.com/holycow/shewbot-rails">_HolyCow (Mike Beasterfeld)</a> for writing the code for our Stuffybot.</p>
 		</footer>
 	</div>
 </body>
