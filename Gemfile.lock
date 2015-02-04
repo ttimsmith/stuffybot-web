@@ -198,8 +198,8 @@ DEPENDENCIES
   bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails
-  devise
   compass-rails
+  devise
   jquery-rails
   newrelic_rpm
   pg

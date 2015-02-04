@@ -52,12 +52,12 @@
 				<p class="navbar-text pull-right">
 					<% if user_signed_in? && !current_user.nil? %>
 						Hello <%= current_user.name %>
-            |
-            <%= link_to "Logout", destroy_user_session_path %></li>
-          <% else %>
-            <%= link_to "Login", new_user_session_path %></li>
+            &middot;
+            <%= link_to "Logout", destroy_user_session_path %>
+            &middot;
 					<% end %>
-          |
+          <%= link_to "Goodstuff FM", "http://goodstuff.fm" %>
+          &middot;
 					<%= link_to "Older Episodes", shows_path %>
 				</p>
 			</div>
