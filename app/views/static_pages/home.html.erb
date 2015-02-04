@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<a data-toggle="collapse" data-parent="#accordion" href="#ChatAndAudio">
-	       <span class="glyphicon glyphicon-plus"></span> 
+	       <span class="glyphicon glyphicon-plus"></span>
 	       	<% if !@irc_channel.nil? %> IRC Chat <% end %>
 	       	<% if !@irc_channel.nil? && !@audio_url.nil? %> and <% end %>
 	       	<% if !@audio_url.nil? %> Live Player <% end %>
@@ -30,7 +30,7 @@
 
 <div class="row">
 	<div class="col-md-3">
-		<h2 id="currentshowtitle"><%= @current_show_title %></h2>
+		<h2 class="currentshowtitle"><%= @current_show_title %></h2>
 		<p>
 			<span id="viewers">1 person</span> viewing this page
 			<br/>
@@ -131,7 +131,7 @@
 						this.sortAttribute = attr;
 						this.sort();
 					},
-			 
+
 	        comparator: function(a, b) {
 	        		//console.log(this.sortAttribute);
 	        		a_get = a.get(this.sortAttribute);
@@ -411,23 +411,23 @@
 	});
 
 	function metaupdate() {
-		$.getJSON(  
-		    '/shows/current',  
-		    {},  
-		    function(json) {  
+		$.getJSON(
+		    '/shows/current',
+		    {},
+		    function(json) {
 		        $("#currentshowtitle").html(json.title);
-		    }  
+		    }
 		);
-    $.getJSON(  
-        '/sessions/visitor_count',  
-        {},  
+    $.getJSON(
+        '/sessions/visitor_count',
+        {},
         function(json) {
             updatetext = json.visitors + ' people';
             if (json.visitors === 1) {
               updatetext = json.visitors + ' person';
             }
             $("#viewers").html(updatetext);
-        }  
+        }
     );
 	}
 	setInterval(metaupdate, 10000);

@@ -17,8 +17,8 @@ when 'development'
 
   puts "#{show1}"
 
-  show2 = Show.create(title: "show2", episode_number: 1)
-  show3 = Show.create(title: "show3", episode_number: 1)
+  show2 = Show.create(title: "Transmission", episode_number: 1)
+  show3 = Show.create(title: "Show Me Your Mic", episode_number: 1)
 
   title1 = show1.titles.create(title: "Title 1", irc_user_id: user1.id)
   title2 = show1.titles.create(title: "Title 2", irc_user_id: user2.id)
@@ -70,6 +70,4 @@ when 'development'
   show3.questions.create(question: "How do I shot web?", irc_user_id: user1.id)
 
   admin = User.create(admin: true, email: 'test@test.com', password: 'password', name: 'Showbot Admin')
-
 end
-
